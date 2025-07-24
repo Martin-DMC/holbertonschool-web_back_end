@@ -1,0 +1,1 @@
+this directory contain exercises about annotations on variables to the language python
