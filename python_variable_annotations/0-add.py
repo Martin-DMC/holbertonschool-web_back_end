@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
 this module contain a function to add numbers of type float,
 and the value of return  also float
