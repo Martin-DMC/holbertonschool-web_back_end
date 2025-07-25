@@ -14,7 +14,8 @@ def make_multiplier(multiplier: float) -> Callable[[float], float]:
     """
     def resultado(num: float) -> float:
         """
-        this function take a float number and return the 
-        result between that number and the previous multiplier"""
+        this function take a float number and return the
+        result between that number and the previous multiplier
+        """
         return num * multiplier
     return resultado
