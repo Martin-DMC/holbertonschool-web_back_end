@@ -4,6 +4,7 @@ this module contains a function that take 2 parameters and
 return a sort list of float numbers
 """
 from typing import List
+import asyncio
 wait_random = __import__('0-basic_async_syntax').wait_random
 
 
@@ -11,30 +12,12 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
     """
     this function take the first parameter as limit of elements
     to it list and take the second parameter as the max of deeley.
-    after get it list use the algorithm bubble sort to return
-    that list in ascendent order
+    and after put in each element in order of finish
     """
-    lista = []
-    i = 0
-    while i < n:
-        ping = wait_random(max_delay)
-        lista.append(await ping)
-        i += 1
-    tmp = 0
-    it = 0
-    size = len(lista)
+    lista = [wait_random(max_delay) for _ in range(n)]
+    lista_en_orden = []
 
-    while it < (size - 1):
-        change = 0
-        j = 0
-        while j < (size - it - 1):
-            if lista[j] > lista[j + 1]:
-                tmp = lista[j]
-                lista[j] = lista[j + 1]
-                lista[j + 1] = tmp
-                change = 1
-            j += 1
-        if change == 0:
-            break
-        it += 1
-    return lista
+    for completas in asyncio.as_completed(lista):
+        delay = await completas
+        lista_en_orden.append(delay)
+    return lista_en_orden
