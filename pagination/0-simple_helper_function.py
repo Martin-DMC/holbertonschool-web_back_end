@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-This module contains a function that returns a tuple of two integers: 
-a start index and an end index. These indices correspond to the correct 
+This module contains a function that returns a tuple of two integers:
+a start index and an end index. These indices correspond to the correct
 range of items to be returned from a list for specific pagination parameters.
 """
 
@@ -17,7 +17,8 @@ def index_range(page: int, page_size: int) -> tuple[int, int]:
         page_size (int): The number of items per page.
 
     Returns:
-        tuple: A tuple of two integers containing the start index and end index.
+        tuple: A tuple of two integers containing the start index
+                and end index.
     """
     if page == 1:
         inicio = 0
@@ -27,6 +28,6 @@ def index_range(page: int, page_size: int) -> tuple[int, int]:
         inicio = page_size * 2
     else:
         inicio = page_size * (page - 1)
-    
+
     fin = inicio + page_size
     return (inicio, fin)
