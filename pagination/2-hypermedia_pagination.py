@@ -71,7 +71,7 @@ class Server:
         """
         paginas = self.dataset()
         data = self.get_page(page, page_size)
-        total_paginas = math.ceil(len(paginas) / page_size)
+        total_paginas = int(math.ceil(len(paginas) / page_size))
         next_page = None
         prev_page = None
         if 1 < page < total_paginas:
