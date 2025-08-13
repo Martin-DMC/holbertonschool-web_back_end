@@ -81,6 +81,12 @@ class Server:
             next_page = page + 1
         elif page == total_paginas:
             prev_page = page - 1
+        else:
+            if page > total_paginas:
+                prev_page = page - 1
+            else:
+                next_page = page + 1
+
         dict_return = {
             'page_size': page_size,
             'page': page,
