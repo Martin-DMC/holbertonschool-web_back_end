@@ -40,38 +40,47 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-            assert isinstance(index, int) and index >= 0
-            assert isinstance(page_size, int) and page_size > 0
-            assert index < len(self.dataset())
-            indice = self.indexed_dataset()
-            if index is None:
-                index = 0
-            data = []
-            current_index = index
-            contador = 0
-        
-            while contador < page_size:
-                if current_index in indice:
-                    data.append(indice[current_index])
-                    contador += 1
-                current_index += 1
-                if current_index > max(indice.keys(), default=0):
-                    break
+        """
+        this method return a dict with information about next page,
+        page size, data and page number.
 
-            next_index = None
-            temp_index = current_index
-            while True:
-                if temp_index in indice:
-                    next_index = temp_index
-                    break
-                
-                if temp_index > max(indice.keys(), default=0):
-                    break
-                temp_index += 1
-            dict_return = {
-                'index': index,
-                'data': data,
-                'page_size': len(data),
-                'next_index': next_index
+        args:
+            index: int = number of solicited item
+            page_size: int = number of item that contain this page
+        return:
+            a dict with all information related
+        """
+        assert isinstance(index, int) and index >= 0
+        assert isinstance(page_size, int) and page_size > 0
+        assert index < len(self.dataset())
+        indice = self.indexed_dataset()
+        if index is None:
+            index = 0
+        data = []
+        current_index = index
+        contador = 0
+
+        while contador < page_size:
+            if current_index in indice:
+                data.append(indice[current_index])
+                contador += 1
+            current_index += 1
+            if current_index > max(indice.keys(), default=0):
+                break
+
+        next_index = None
+        temp_index = current_index
+        while True:
+            if temp_index in indice:
+                next_index = temp_index
+                break
+            if temp_index > max(indice.keys(), default=0):
+                break
+            temp_index += 1
+        dict_return = {
+            'index': index,
+            'data': data,
+            'page_size': len(data),
+            'next_index': next_index
             }
-            return dict_return
+        return dict_return
