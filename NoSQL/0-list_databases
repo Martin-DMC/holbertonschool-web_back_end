@@ -1,4 +1,3 @@
 // Script para listar las base de datos
 !/bin/bash
 show dbs
-quit()
