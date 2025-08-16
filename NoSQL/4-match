@@ -1,0 +1,2 @@
+// script que lista todos los documentos con sierto nombre en la coleccion school
+db.school.find({"name": "Holberton school"})
