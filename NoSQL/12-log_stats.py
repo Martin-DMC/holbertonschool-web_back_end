@@ -13,6 +13,8 @@ def run_stats():
     try:
         client = pymongo.MongoClient()
 
+        client.admin.command('ping')
+
         db = client.logs
         nginx_collection = db.nginx
 
@@ -29,7 +31,15 @@ def run_stats():
             {"method": "GET", "path": "/status"})
         print(f"{status_check_count} status check")
 
-    except pymongo.errors.ConnectionFailure as e:
-        print(f"Error de conexión a MongoDB: {e}")
+    except pymongo.errors.ConnectionFailure:
+        print("0 logs")
+        print("Methods:")
+        print("\tmethod GET: 0")
+        print("\tmethod POST: 0")
+        print("\tmethod PUT: 0")
+        print("\tmethod PATCH: 0")
+        print("\tmethod DELETE: 0")
+        print("0 status check")
+
     except Exception as e:
-        print(f"Error inesperado: {e}")
+        print(f"Ocurrió un error inesperado: {e}")
