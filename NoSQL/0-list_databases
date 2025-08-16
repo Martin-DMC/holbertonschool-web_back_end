@@ -1,1 +1,2 @@
+// Script para mostrar todas las databases
 show dbs;
