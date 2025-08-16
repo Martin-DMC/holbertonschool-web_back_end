@@ -1,3 +1,2 @@
 // Script para crear o usar la base de datos my-db
-!/bin/bash
 use my_db
