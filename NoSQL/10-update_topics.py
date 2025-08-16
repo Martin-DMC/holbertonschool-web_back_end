@@ -17,7 +17,7 @@ def update_topics(mongo_collection, name, topics):
         name (str): El nombre del documento a actualizar.
         topics (list): La lista de tópics nuevos.
 
-    Returns:
+    returns:
         int: El número de documentos modificados (1 si tiene éxito, 0 si no).
              Retorna -1 en caso de error.
     """
@@ -26,7 +26,7 @@ def update_topics(mongo_collection, name, topics):
         
         update_operation = {"$set": {"topics": topics}}
         
-        result = mongo_collection.update_one(filter_query, update_operation)
+        result = mongo_collection.update_many(filter_query, update_operation)
         
         return result.modified_count
     except pymongo.errors.ConnectionFailure as e:
