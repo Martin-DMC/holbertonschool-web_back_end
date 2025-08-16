@@ -12,10 +12,10 @@ def list_all(mongo_collection):
     """
     Lista todos los documentos en una colección de MongoDB.
 
-    Args:
+    args:
         mongo_collection: El objeto de colección de PyMongo.
 
-    Returns:
+    returns:
         list: Una lista de todos los documentos en la colección.
               Devuelve una lista vacía si la colección está vacía.
     """
