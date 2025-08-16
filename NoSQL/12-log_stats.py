@@ -30,13 +30,6 @@ def run_stats():
             {"method": "GET", "path": "/status"})
         print(f"{status_check_count} status check")
 
-    except pymongo.errors.ConnectionFailure:
-        print("0 logs")
-        print("Methods:")
-        for method in ["GET", "POST", "PUT", "PATCH", "DELETE"]:
-            print(f"\tmethod {method}: 0")
-        print("0 status check")
-
     except Exception as e:
         print(f"Ocurrió un error inesperado: {e}")
 
