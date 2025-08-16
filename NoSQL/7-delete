@@ -1,0 +1,2 @@
+// Script que borra todos los documentos con 'x' nombre in la coleccion school
+db.school.deleteMany({"name": "Holberton school"})
