@@ -1,0 +1,25 @@
+# Directorio de módulos de Node.js
+/node_modules
+
+# Archivos de logs de npm
+npm-debug.log*
+.npm/
+
+# Archivos de entorno
+.env
+.env.local
+
+# Archivos de configuración de Babel
+/dist
+/build
+.babelcache*
+
+# Archivos de editor de código (VS Code, etc.)
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
