@@ -5,7 +5,7 @@ const DB_FILE = process.argv[2];
 
 const app = http.createServer(async (req, res) => {
   res.setHeader('Content-Type', 'text/plain');
-  
+
   if (req.url === '/') {
     res.statusCode = 200;
     res.end('Hello Holberton School!');
@@ -13,7 +13,7 @@ const app = http.createServer(async (req, res) => {
     let responseText = 'This is the list of our students\n';
 
     const originalWrite = process.stdout.write;
-    
+
     const capturedOutput = [];
     process.stdout.write = (chunk, encoding, callback) => {
       capturedOutput.push(chunk.toString());
